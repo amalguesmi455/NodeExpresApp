@@ -55,8 +55,8 @@ pipeline {
             steps{
                 withDockerRegistry([credentialsId: "docker-hub", url:""]){
                     //sh 'printenv'
-                    sh 'docker build -t karydock/appnode-oct:""$GIT_COMMIT"" .'
-                    sh 'docker push karydock/appnode-oct:""$GIT_COMMIT"" '
+                    sh 'docker build -t amalguesmi/appnode-oct:""$GIT_COMMIT"" .'
+                    sh 'docker push amalguesmi/appnode-oct:""$GIT_COMMIT"" '
                 }
             }
             
