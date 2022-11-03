@@ -51,9 +51,9 @@ pipeline {
         def registry_url = "registry.hub.docker.com/"
 sh ' docker login -u amalguesmi -p 22651530mama https://registry.hub.docker.com '
                  // Push your image now
-              sh 'sudo usermod -a -G docker jenkins'
+            //  sh 'sudo usermod -a -G docker jenkins'
 sh ' grep docker /etc/group'
-            sh "docker push amalguesmi/appnode-oct:tagname"
+            sh "docker push amalguesmi/appnode-oct:latest"
         }
     }
                 
