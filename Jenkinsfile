@@ -49,7 +49,7 @@ pipeline {
         def registry_url = "registry.hub.docker.com/"
 sh ' docker login -u amalguesmi -p 22651530mama registry.hub.docker.com/ '
                  // Push your image now
-            sh "docker push amalguesmi/appnode-oct:build"
+            sh "docker push amalguesmi/appnode-oct:latest"
                 
         }
     }
