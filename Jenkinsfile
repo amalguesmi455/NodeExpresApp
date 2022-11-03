@@ -43,11 +43,11 @@ pipeline {
             steps{
                 script{
            
-              //  withDockerRegistry([credentialsId: "docker-hub", url:"https://registry.hub.docker.com"]){
-                //    sh 'sudo usermod -a -G docker jenkins'
+               withDockerRegistry([credentialsId: "docker-hub", url:"https://registry.hub.docker.com"]){
+                    sh 'sudo usermod -a -G docker jenkins'
 
-                 //  dockerImage.push()
-             withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
+                   dockerImage.push()
+            /* withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
         def registry_url = "registry.hub.docker.com/"
 sh ' docker login -u amalguesmi -p 22651530mama https://registry.hub.docker.com '
                  // Push your image now
@@ -56,7 +56,7 @@ sh ' docker login -u amalguesmi -p 22651530mama https://registry.hub.docker.com 
             sh "docker push "
         }
     }
-                
+                */ 
               }
                }
                
