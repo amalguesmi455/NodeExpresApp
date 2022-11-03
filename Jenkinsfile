@@ -46,8 +46,8 @@ pipeline {
          //           withDockerRegistry([credentialsId: "docker-hub", url:""]){
            //         dockerImage.push()
              withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
-        def registry_url = "registry.hub.docker.com/"
-sh ' docker login -u amalguesmi -p 22651530mama registry.hub.docker.com/ '
+        def registry_url = "hub.docker.com/"
+sh ' docker login -u amalguesmi -p 22651530mama hub.docker.com/ '
                  // Push your image now
             sh "docker push amalguesmi/appnode-oct:latest"
                 
