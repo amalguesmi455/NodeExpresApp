@@ -39,24 +39,28 @@ pipeline {
                     
           }
         
-         stage('Push image') {
+      stage('Push image') {
             steps{
                 script{
            
          //           withDockerRegistry([credentialsId: "docker-hub", url:""]){
            //         dockerImage.push()
-             withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
-        def registry_url = "hub.docker.com/"
-sh ' docker login -u amalguesmi -p 22651530mama hub.docker.com/ '
+
+        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+        bat "docker push amalguesmi/appnode-oct:build"
+        }
+
+           /*  withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
+        def registry_url = "registry.hub.docker.com/"
+sh ' docker login -u amalguesmi -p 22651530mama registry.hub.docker.com/ '
                  // Push your image now
             sh "docker push amalguesmi/appnode-oct:latest"
                 
         }
     }
-                    
+             */       
               }
                }
-               
              
         
         
