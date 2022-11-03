@@ -44,8 +44,7 @@ pipeline {
                 script{
            
                withDockerRegistry([credentialsId: "docker-hub", url:"https://registry.hub.docker.com"]){
-                    sh 'sudo usermod -a -G docker jenkins'
-
+                  
                    dockerImage.push()
             /* withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
         def registry_url = "registry.hub.docker.com/"
