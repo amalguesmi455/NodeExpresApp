@@ -44,12 +44,12 @@ pipeline {
            
          //           withDockerRegistry([credentialsId: "docker-hub", url:""]){
            //         dockerImage.push()
-             withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi455', passwordVariable: '22651530mama')]) {
+             withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
         def registry_url = "registry.hub.docker.com/"
-        sh "docker login -u $USER -p $PASSWORD ${registry_url}"
+        bat "docker login -u $USER -p $PASSWORD ${registry_url}"
         docker.withRegistry("http://${registry_url}", "docker-hub") {
             // Push your image now
-            sh "docker push amalguesmi/appnode-oct:latest"
+            bat "docker push amalguesmi/appnode-oct:latest"
         }
     }
                     
