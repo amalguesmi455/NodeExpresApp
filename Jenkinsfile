@@ -32,7 +32,7 @@ pipeline {
              steps{
                 script{
                    
-                   dockerImage = docker.build("amalguesmi/appnode-oct:latest")
+                   dockerImage = docker.build("amalguesmi/appnode-oct:appnode")
                     
                 }
              }
@@ -47,7 +47,7 @@ pipeline {
            //         dockerImage.push()
 
         withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
-        bat "docker push amalguesmi/appnode-oct:build"
+        bat "docker push amalguesmi/appnode-oct:appnode"
         }
 
            /*  withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
