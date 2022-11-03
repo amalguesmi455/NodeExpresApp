@@ -54,7 +54,7 @@ sh ' docker login -u amalguesmi -p 22651530mama registry.hub.docker.com/ '
                     
               }
                }
-             }
+             
         
         
         
