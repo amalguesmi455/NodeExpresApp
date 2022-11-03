@@ -52,7 +52,7 @@ pipeline {
             sh "docker push amalguesmi/appnode-oct:latest"
         }
     }
-}          
+                    
               }
                }
              }
