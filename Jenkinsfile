@@ -38,6 +38,7 @@ pipeline {
              }
                     
           }
+        
         stage('Push image') {
             steps{
                 script{
@@ -57,6 +58,9 @@ sh ' docker login -u amalguesmi -p 22651530mama https://registry.hub.docker.com 
           */       
               }
                }
+               }
+               }
+               
              
         
         
