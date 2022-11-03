@@ -39,23 +39,16 @@ pipeline {
                     
           }
         
-         stage('Push image') {
-            steps{
-                script{
-           
-         //           withDockerRegistry([credentialsId: "docker-hub", url:""]){
-           //         dockerImage.push()
-             withCredentials([usernamePassword( credentialsId: 'docker-hub', usernameVariable: 'amalguesmi', passwordVariable: '22651530mama')]) {
-        def registry_url = "hub.docker.com/"
-sh ' docker login -u amalguesmi -p 22651530mama hub.docker.com/ '
-                 // Push your image now
-            sh "docker push amalguesmi/appnode-oct:latest"
-                
-        }
-    }
-                    
-              }
-               }
+       stage('Push image') {
+  /* Finally, we'll push the image with two tags:
+  * First, the incremental build number from Jenkins
+  * Second, the 'latest' tag.
+  * Pushing multiple tags is cheap, as all the layers are reused. */
+  docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+    app.push("${env.BUILD_NUMBER}")
+    app.push("latest")
+  }
+}
                
              
         
